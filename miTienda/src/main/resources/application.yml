@@ -1,0 +1,15 @@
+server:
+  port: 8085
+
+spring:
+  datasource:
+    url: jdbc:sqlserver://localhost:1433;databaseName=miTienda;encrypt=true;trustServerCertificate=true
+    username: sa
+    password: Luisanchez24
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+
+  jpa:
+    database-platform: org.hibernate.dialect.SQLServer2012Dialect
+    hibernate:
+      ddl-auto: none  # Hibernate NO modificará la estructura, usas tu propia base
+    show-sql: true

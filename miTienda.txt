@@ -1,0 +1,72 @@
+CREATE DATABASE miTienda;
+GO
+
+USE miTienda;
+GO
+
+CREATE TABLE productos (
+    id INT PRIMARY KEY IDENTITY(1,1),
+    nombre VARCHAR(100) NOT NULL,
+    precio DECIMAL(10, 2) NOT NULL,
+    stock INT NOT NULL,
+    fecha_creacion DATETIME DEFAULT GETDATE(),
+    descripcion TEXT,
+    activo BIT DEFAULT 1
+);
+GO
+
+-- **************************************
+-- 1. INSERTAR TODOS LOS DATOS DE UNA VEZ (CREATE)
+-- **************************************
+INSERT INTO productos (nombre, precio, stock, descripcion, activo)
+VALUES 
+('Smartphone Samsung Galaxy S23', 999.99, 150, 'Último modelo de smartphone de Samsung con cámara de alta resolución.', 1),
+('Smart TV LG OLED 65"', 1500.00, 75, 'Televisor OLED de 65 pulgadas con resolución 4K y Smart TV.', 1),
+('Auriculares Bluetooth Sony WH-1000XM5', 299.99, 200, 'Cancelación de ruido líder en la industria.', 0),
+('Laptop Dell XPS 15', 1899.99, 50, 'Portátil premium con pantalla 4K y procesador Intel i7.', 1),
+('Tablet Apple iPad Air 2024', 699.00, 120, 'iPad de última generación con chip M2 y pantalla Retina.', 1),
+('Consola PlayStation 5', 499.99, 80, 'Nueva generación de consolas de videojuegos.', 1),
+('Cámara Canon EOS R7', 1299.99, 30, 'Cámara mirrorless profesional para fotografía y video.', 1),
+('Monitor Gaming ASUS 27"', 399.99, 60, 'Monitor 2K con 165Hz y 1ms de tiempo de respuesta.', 1),
+('Impresora HP LaserJet Pro', 249.99, 40, 'Impresora láser monocromática ideal para oficina.', 1),
+('Bocinas Bluetooth JBL Charge 5', 149.99, 90, 'Bocinas resistentes al agua con sonido potente.', 1),
+('Reloj Inteligente Garmin Fenix 7', 799.99, 25, 'Smartwatch multideporte con GPS y larga duración de batería.', 1);
+
+-- Verificar los datos insertados
+SELECT * FROM productos;
+GO
+
+-- **************************************
+-- 2. ACTUALIZAR DATOS (UPDATE)
+-- **************************************
+UPDATE productos
+SET precio = 949.99, stock = 160
+WHERE id = 1;
+
+UPDATE productos
+SET descripcion = 'Televisor OLED de 65 pulgadas con resolución 4K y Smart TV.', activo = 1
+WHERE id = 2;
+
+-- Verificar los datos actualizados
+SELECT * FROM productos;
+GO
+
+-- **************************************
+-- 3. ELIMINAR DATOS (DELETE)
+-- **************************************
+-- Borrado Lógico (cambiar 'activo' a 0)
+UPDATE productos
+SET activo = 0
+WHERE id = 3;
+
+-- Verificar que el producto tiene activo = 0
+SELECT * FROM productos;
+GO
+
+-- Borrado Físico (eliminar registro completamente)
+DELETE FROM productos
+WHERE id = 3;
+
+-- Verificar que el producto fue eliminado
+SELECT * FROM productos;
+GO

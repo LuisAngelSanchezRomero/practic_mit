@@ -1,0 +1,32 @@
+.product-form-dialog {
+    padding: 24px; // Standard Material dialog padding
+    width: 50vw; // Maintain width as per original
+    max-width: 800px; // Optional: max width
+}
+
+h2 {
+    margin-bottom: 24px;
+    color: #333;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px; // Gap between form fields
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+.mat-mdc-form-field-error {
+    font-size: 0.875rem;
+}
+
+mat-dialog-actions {
+    margin-top: 24px; // Space above buttons
+
+    button {
+        margin-left: 8px; // Space between buttons
+    }
+}

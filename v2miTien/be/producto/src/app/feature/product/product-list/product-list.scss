@@ -1,0 +1,40 @@
+.container {
+    padding: 24px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+
+    h1 {
+        margin: 0;
+        color: #333;
+    }
+}
+
+.actions {
+    display: flex;
+    gap: 16px; // Space between buttons
+}
+
+.table-container {
+    width: 100%;
+    overflow-x: auto; // Ensures responsiveness for table
+}
+
+table {
+    width: 100%;
+}
+
+.mat-column-actions {
+    width: 120px; // Adjust as needed for action buttons
+    text-align: center;
+}
+
+// Styles for Material Icons
+mat-icon {
+    vertical-align: middle;
+    margin-right: 8px;
+}
